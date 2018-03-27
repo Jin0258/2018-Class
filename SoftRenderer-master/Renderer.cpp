@@ -55,7 +55,7 @@ void UpdateFrame(void)
 			if (Vector2::Dist(Center, CurrentPos) < radius) //Vector.cpp 에서 정의한 Dist함수를 사용하여 계산
 			{
 				//PutPixel(w, h);
-				CurrentPos = CurrentPos * Scaler;
+//				CurrentPos = CurrentPos * Scaler;
 				Vector2 temp(CurrentPos.X - 50.0f, CurrentPos.Y - 15.0f);//원점 변경 (0.0) -> (50.0f, 15.0f)
 				Vector2 Rotated = temp * Rotator;
 				PutPixel(Rotated.X, Rotated.Y);
