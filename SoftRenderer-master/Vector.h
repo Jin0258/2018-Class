@@ -33,6 +33,41 @@ public:
 	Vector2 Normalize(const Vector2& v) const;
 };
 
+struct Vector3
+{
+public:
+	float X;
+	float Y;
+	float Z;
+public:
+	Vector3() : X(0), Y(0) {}
+	Vector3(float InX, float InY, float InZ) : X(InX), Y(InY) {}
+
+	void SetPoint(float InX, float InY)
+	{
+		X = InX;
+		Y = InY;
+		Z = 1.0f;
+	}
+
+	void SetVector(float InX, float InY)
+	{
+		X = InX;
+		Y = InY;
+		Z = 0.0f;
+	}
+
+	Vector3 operator *(const float& scalar)const;
+	Vector3 operator *(const Matrix3& M)const;
+	Vector3 operator +(const Vector3& v)const;
+	Vector3 operator -(const Vector3& v)const;
+
+	float Dist();
+
+
+};
+
+
 FORCEINLINE bool Vector2::Equals(const Vector2 & v, float Tolerance) const
 {
 	return  fabs(X - v.X) <= Tolerance && fabs(Y - v.Y) <= Tolerance;

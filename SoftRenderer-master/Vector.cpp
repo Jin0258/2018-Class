@@ -87,3 +87,45 @@ Vector2 Vector2::Normalize(const Vector2 & v) const
 	return result;
 }
 
+Vector3 Vector3::operator*(const float& scalar) const
+{
+	Vector3 result;
+	result.X = X * scalar;
+	result.Y = Y * scalar;
+	result.Z = Z;
+	return result;
+}
+
+Vector3 Vector3::operator*(const Matrix3 & M) const
+{
+	Vector3 result;
+	result.X = X * M._11 + Y * M._12 + Z * M._13;
+	result.Y = X * M._21 + Y * M._22 + Z * M._23;
+	result.Z = 1.0f;
+	return result;
+}
+
+Vector3 Vector3::operator+(const Vector3 & v) const
+{
+	Vector3 result;
+	result.X = X + v.X;
+	result.Y = Y + v.Y;
+	result.Z = 0.0f;
+	return result;
+}
+
+Vector3 Vector3::operator-(const Vector3 & v) const
+{
+	Vector3 result;
+	result.X = X - v.X;
+	result.Y = Y - v.Y;
+	result.Z = 0.0f;
+	return result;
+}
+
+float Vector3::Dist()
+{
+	return sqrtf(X * X + Y * Y);
+}
+
+
